@@ -1,6 +1,6 @@
 // Copyright (c) 2012-2016, The CryptoNote developers, The Bytecoin developers
-// 
-// 
+//
+//
 // Copyright (c) 2018, Ryo Currency Project
 // Copyright (c) 2017-2018, The Geem developers
 // Copyright (c) 2018-2019, Adabon Team
@@ -109,7 +109,7 @@ const char     MINER_CONFIG_FILE_NAME[]                      = "miner_conf.json"
 } // parameters
 
 const char     CRYPTONOTE_NAME[]                             = "adabon";
-const char     GENESIS_COINBASE_TX_HEX[]                     = "010a01ff0001e3a4fdb51c029b2e4c0281c0b02e7c53291a94d1d0cbff8883f8024f5142ee494ffbbd088071210117acaa62146ef6f253c70193003df0e5c80ae495ac77260e130fda085cdaa8a6";
+const char     GENESIS_COINBASE_TX_HEX[]                     = "";
 
 const uint8_t  CURRENT_TRANSACTION_VERSION                   =  1;
 const uint8_t  BLOCK_MAJOR_VERSION_1                         =  1;
@@ -146,8 +146,9 @@ const uint32_t P2P_IDLE_CONNECTION_KILL_INTERVAL             = (5 * 60);      //
 
 const char     P2P_STAT_TRUSTED_PUB_KEY[]                    = "9f10f9c5f431a9f1411d13936228aeafeefc918ce505efe115d8f94a045fa119";
 
-const char* const SEED_NODES[] = { 
+const char* const SEED_NODES[] = {
   "45.79.18.234:2879",
+  "	45.79.18.229:2879"
 };
 
 struct CheckpointData {
@@ -155,7 +156,7 @@ struct CheckpointData {
   const char* blockId;
 };
 
-const std::initializer_list<CheckpointData> CHECKPOINTS = { 
+const std::initializer_list<CheckpointData> CHECKPOINTS = {
   /*
   {7150,        "69c7e57cb576fd0899951c7ea5841d529358682d9ae6fc183051b0663bd84a63" },
   */
@@ -164,6 +165,3 @@ const std::initializer_list<CheckpointData> CHECKPOINTS = {
 } // CryptoNote
 
 #define ALLOW_DEBUG_COMMANDS
-
-
-
