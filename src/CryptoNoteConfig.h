@@ -3,6 +3,7 @@
 // 
 // Copyright (c) 2018, Ryo Currency Project
 // Copyright (c) 2017-2018, The Geem developers
+// Copyright (c) 2018-2019, Adabon Team
 //
 // This file is part of Bytecoin.
 //
@@ -26,12 +27,12 @@
 namespace CryptoNote {
 namespace parameters {
 
-const uint64_t DIFFICULTY_TARGET                             = 120; // seconds
+const uint64_t DIFFICULTY_TARGET                             = 90; // seconds
 const uint64_t CRYPTONOTE_MAX_BLOCK_NUMBER                   = 500000000;
 const size_t   CRYPTONOTE_MAX_BLOCK_BLOB_SIZE                = 500000000;
 const size_t   CRYPTONOTE_MAX_TX_SIZE                        = 1000000000;
-const uint64_t CRYPTONOTE_PUBLIC_ADDRESS_BASE58_PREFIX       = 90; // addresses start with "G"
-const size_t   CRYPTONOTE_MINED_MONEY_UNLOCK_WINDOW          = 10;
+const uint64_t CRYPTONOTE_PUBLIC_ADDRESS_BASE58_PREFIX       = 56; // addresses start with "G"
+const size_t   CRYPTONOTE_MINED_MONEY_UNLOCK_WINDOW          = 5;
 const size_t   CRYPTONOTE_TX_SPENDABLE_AGE                   = 6;
 const uint64_t CRYPTONOTE_BLOCK_FUTURE_TIME_LIMIT            = DIFFICULTY_TARGET * 7;
 const uint64_t CRYPTONOTE_BLOCK_FUTURE_TIME_LIMIT_V1         = DIFFICULTY_TARGET * 3;
@@ -39,11 +40,11 @@ const size_t   BLOCKCHAIN_TIMESTAMP_CHECK_WINDOW             = 60;
 const size_t   BLOCKCHAIN_TIMESTAMP_CHECK_WINDOW_V1          = 11;
 
 // MONEY_SUPPLY - total number coins to be generated
-const uint64_t MONEY_SUPPLY                                  = UINT64_C(2000000000000000);
+const uint64_t MONEY_SUPPLY                                  = UINT64_C(50000000000000);
 const uint64_t COIN                                          = UINT64_C(100000000);
 const uint64_t TAIL_EMISSION_REWARD                          = UINT64_C(100000000);
 const size_t CRYPTONOTE_COIN_VERSION                         = 1;
-const unsigned EMISSION_SPEED_FACTOR                         = 18;
+const unsigned EMISSION_SPEED_FACTOR                         = 17;
 static_assert(EMISSION_SPEED_FACTOR <= 8 * sizeof(uint64_t), "Bad EMISSION_SPEED_FACTOR");
 
 const size_t   CRYPTONOTE_REWARD_BLOCKS_WINDOW               = 100;
@@ -89,7 +90,7 @@ const size_t   FUSION_TX_MAX_SIZE                            = CRYPTONOTE_BLOCK_
 const size_t   FUSION_TX_MIN_INPUT_COUNT                     = 12;
 const size_t   FUSION_TX_MIN_IN_OUT_COUNT_RATIO              = 4;
 
-const uint32_t UPGRADE_HEIGHT_V2                             = 7200;
+const uint32_t UPGRADE_HEIGHT_V2                             = 300000000;
 const uint32_t UPGRADE_HEIGHT_V3                             = 400000000;
 const uint32_t UPGRADE_HEIGHT_V4                             = 500000000;
 const unsigned UPGRADE_VOTING_THRESHOLD                      = 90; // percent
@@ -107,7 +108,7 @@ const char     CRYPTONOTE_BLOCKCHAIN_INDICES_FILENAME[]      = "blockchainindice
 const char     MINER_CONFIG_FILE_NAME[]                      = "miner_conf.json";
 } // parameters
 
-const char     CRYPTONOTE_NAME[]                             = "geem";
+const char     CRYPTONOTE_NAME[]                             = "adabon";
 const char     GENESIS_COINBASE_TX_HEX[]                     = "010a01ff0001e3a4fdb51c029b2e4c0281c0b02e7c53291a94d1d0cbff8883f8024f5142ee494ffbbd088071210117acaa62146ef6f253c70193003df0e5c80ae495ac77260e130fda085cdaa8a6";
 
 const uint8_t  CURRENT_TRANSACTION_VERSION                   =  1;
@@ -122,8 +123,8 @@ const size_t   BLOCKS_IDS_SYNCHRONIZING_DEFAULT_COUNT        =  10000;  //by def
 const size_t   BLOCKS_SYNCHRONIZING_DEFAULT_COUNT            =  128;    //by default, blocks count in blocks downloading
 const size_t   COMMAND_RPC_GET_BLOCKS_FAST_MAX_COUNT         =  1000;
 
-const int      P2P_DEFAULT_PORT                              =  2045;
-const int      RPC_DEFAULT_PORT                              =  2046;
+const int      P2P_DEFAULT_PORT                              =  2879;
+const int      RPC_DEFAULT_PORT                              =  2979;
 
 const size_t   P2P_LOCAL_WHITE_PEERLIST_LIMIT                =  1000;
 const size_t   P2P_LOCAL_GRAY_PEERLIST_LIMIT                 =  5000;
@@ -146,12 +147,7 @@ const uint32_t P2P_IDLE_CONNECTION_KILL_INTERVAL             = (5 * 60);      //
 const char     P2P_STAT_TRUSTED_PUB_KEY[]                    = "9f10f9c5f431a9f1411d13936228aeafeefc918ce505efe115d8f94a045fa119";
 
 const char* const SEED_NODES[] = { 
-  "seed1.geem.io:2045",
-  "seed2.geem.io:2045",
-  "seed3.geem.io:2045",
-  "seed4.geem.io:2045",
-  "seed5.geem.io:2045",
-  "seed6.geem.io:2045"
+  "45.79.18.234:2879",
 };
 
 struct CheckpointData {
@@ -160,30 +156,9 @@ struct CheckpointData {
 };
 
 const std::initializer_list<CheckpointData> CHECKPOINTS = { 
-  {7150,        "69c7e57cb576fd0899951c7ea5841d529358682d9ae6fc183051b0663bd84a63" },           // 12/25/2017, 5:37:56 PM
-  {7201,        "a07c0cb16114853a2801a4ef68c9c22b9ceb27931e649fdc2ee7f5a7d0e4e99c" },           // 12/25/2017, 8:48:15 PM //V2.0-Start
-  {7777,        "36637f9067ab76b3886a826b29f09a0582a345a9cc311315231955c91c43a184" },           // 12/30/2017, 8:55:18 PM
-  {8888,        "368eb9d8ff276f133282ea22150c265d7031159e586df6e8b2e2b3b42c2311f3" },           // 1/9/2018, 7:51:32 AM
-  {9999,        "18505e185cd92867fe4c9d8eb1160e4da63b53674040bb8c1b36865d873815ca" },           // 3/5/2018, 0:1:10 AM
-  {20000,       "9a1413cc5d46dd2b67a0986c5fed5d8513a4c068ed589649335789cb12d5487d" },           // 3/5/2018, 0:10:37 AM //Long-Term
-  {22222,	 "0b932de4ff8ef8a6d3ad7031c8e1abe68283da1bc47427201b7ac316d3c3f4fc" },
-  {33333,       "0448be8befda190a034155767dd037730761248713f6be04dc356e027063dd6a" },
-  {44444,       "639fbbfe5a5b9c40cb44fb2023d05fb1beb0fb31cd7b1b39e9b31187405a4a5e" },
-  {55555,       "4c126bf44d79b107805d5ef34a52d78c1a4c25aa4b1dff9a59a3a13f8c06f01e" },
-  {66666,       "80d28a5be20ff8e0a07210648e62e838a95979016c06c3a02d4abe2ef48fc34d" },
-  {77777,       "ffc11d6988f7519343ff53f96cf2a6fc4a7ae344e3096e898a2b15f7990a2126" },
-  {85000,       "0bbd7999ca258794da60a839d13588b8c4338bdc903034ad8c9d6193b7cbe7e5" },		// 25/6/2018, 23:17:29 PM //Long-Term-JSAJ-Sitara
-  {88888,       "16ff12a648655834b3142fe2a7c14019c5c72486d2e7532d08938ad15663bcdb" },
-  {99999,       "f94c50f8c402379b0c4e9e2c363fb78a11ee07dd4dc11f36e700624f29be9434" },
-  {100000,      "46429f94a26d9e93cd258cdcab292794bd04a54746e415740ff12d9b74eeb6cb" },
-  {111111,      "2694ccb473aaa42f5705f00daf3d1d7ce2987c07b1bee2ef650b9a8701be6f7f" },
-  {122222,      "a5fb88af91d31f3a5560ad4ed1277a3e4ee1aa1487f8835f830877a2b9f93c63" },
-  {130000,      "c20d0796e86fd2f6b0d14f25142dc17886a85398944050cdfa3ec900ae6368b9" },
-  {133333,      "0bd8f1a865479d522e439b2751aea706282da823a20f2bb8f998548d3aa17368" },
-  {135900,      "6fed04437714f81a9d1c40d5e509c323efce12a282d3ff60268b10380822bdbb" },            // 9/8/2018, 4:24:16 PM //Long-Term-JSAJ-Nebula
-  {144444,      "92f59721527a34a0224215922330272fb9ace452013c09d07e925dcb7cc9b733" },
-  {150000,      "5ab26864e08cb976d3bede7ee0dfbfd10320f3d086352ce544f6a41a7d154e89" },
-  {151900,      "280b85af7c8058a8ba1d57efedbfb396a31a6b1298de2944378dbd06a8602b20" }            // 10/02/2018, 1:59:45 AM //Premature-Burning-Long-Term-JSAJ-Nebula
+  /*
+  {7150,        "69c7e57cb576fd0899951c7ea5841d529358682d9ae6fc183051b0663bd84a63" },
+  */
 };
 
 } // CryptoNote
