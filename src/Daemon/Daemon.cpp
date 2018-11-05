@@ -177,7 +177,7 @@ int main(int argc, char* argv[])
 
     if (!r)
       return 1;
-  
+
     auto modulePath = Common::NativePathToGeneric(argv[0]);
     auto cfgLogFile = Common::NativePathToGeneric(command_line::get_arg(vm, arg_log_file));
 
@@ -203,18 +203,13 @@ int main(int argc, char* argv[])
 	std::cout <<
 "\n                                                \n"
 "  ============================================== \n"
-"       [....   [........[........[..       [..   \n"
-"     [.    [.. [..      [..      [. [..   [...   \n"
-"    [..        [..      [..      [.. [.. [ [..   \n"
-"    [..        [......  [......  [..  [..  [..   \n"
-"    [..   [....[..      [..      [..   [.  [..   \n"
-"     [..    [. [..      [..      [..       [..   \n"
-"      [.....   [........[........[..       [..   \n"
+"                                                  \n"
+"    /\         | |         | |                    \n"
+"   /  \      __| |   __ _  | |__     ___    _ __  \n"
+"  / /\ \    / _` |  / _` | | '_ \   / _ \  | '_ \ \n"
+" / ____ \  | (_| | | (_| | | |_) | | (_) | | | | |\n"
+"/_/    \_\  \__,_|  \__,_| |_.__/   \___/  |_| |_|\n"
 "  ============================================== \n"
-"            GEEM  |  VALUE  |  STORED            \n"
-"          Version 2.4.0 Codename: Nebula         \n"
-"                |||The StarDust|||               \n"
-"  ============================================== \n" 
 "                                                 \n" << ENDL;
 
     logger(INFO) << "Module folder: " << argv[0];
@@ -242,7 +237,7 @@ int main(int argc, char* argv[])
     }
 
 #ifndef __ANDROID__
-	
+
 #endif
 
 	bool use_checkpoints = !command_line::get_arg(vm, arg_load_checkpoints).empty();
@@ -285,7 +280,7 @@ int main(int argc, char* argv[])
     CryptoNote::CryptoNoteProtocolHandler cprotocol(currency, dispatcher, ccore, nullptr, logManager);
     CryptoNote::NodeServer p2psrv(dispatcher, cprotocol, logManager);
     CryptoNote::RpcServer rpcServer(dispatcher, logManager, ccore, p2psrv, cprotocol);
-	
+
     cprotocol.set_p2p_endpoint(&p2psrv);
     ccore.set_cryptonote_protocol(&cprotocol);
     DaemonCommandsHandler dch(ccore, p2psrv, logManager, cprotocol, &rpcServer);
