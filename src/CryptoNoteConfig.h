@@ -109,7 +109,7 @@ const char     MINER_CONFIG_FILE_NAME[]                      = "miner_conf.json"
 } // parameters
 
 const char     CRYPTONOTE_NAME[]                             = "adabon";
-const char     GENESIS_COINBASE_TX_HEX[]                     = "010a01ff00019e88f3b501029b2e4c0281c0b02e7c53291a94d1d0cbff8883f8024f5142ee494ffbbd0880712101bf607f6d62a87338dd05a5dcac3b96650aba3b11c2578e64f75f6f8cc2121c5f";
+const char     GENESIS_COINBASE_TX_HEX[]                     = "010a01ff00019e88f3b501029b2e4c0281c0b02e7c53291a94d1d0cbff8883f8024f5142ee494ffbbd08807121015bd36f21f05fec5138b8bcd8b156ad4f5c7e3af17bcf575e8436a3cf25bb064a";
 
 const uint8_t  CURRENT_TRANSACTION_VERSION                   =  1;
 const uint8_t  BLOCK_MAJOR_VERSION_1                         =  1;
