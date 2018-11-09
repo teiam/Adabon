@@ -148,7 +148,7 @@ const char     P2P_STAT_TRUSTED_PUB_KEY[]                    = "9f10f9c5f431a9f1
 
 const char* const SEED_NODES[] = {
   "69.164.193.190:2879",
-  "162.216.16.217:2879"
+  "45.33.8.70:2879"
 };
 
 struct CheckpointData {
